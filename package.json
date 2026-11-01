@@ -1,0 +1,60 @@
+{
+  "name": "digital-passes",
+  "version": "1.0.0",
+  "description": "Sustav za upravljanje digitalnim propusnicama (Express + EJS + HTMX + PostgreSQL + Auth0)",
+  "main": "dist/server.js",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc -p tsconfig.build.json && node scripts/copy-assets.mjs",
+    "start": "node dist/server.js",
+    "migrate": "node dist/scripts/migrate.js",
+    "migrate:dev": "tsx src/scripts/migrate.ts",
+    "start:render": "node dist/scripts/migrate.js && node dist/server.js",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "task2": "tsx src/task2/run.ts",
+    "prebuild": "node scripts/clean.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nhuzjak20/rwa-first-homework.git"
+  },
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/nhuzjak20/rwa-first-homework/issues"
+  },
+  "homepage": "https://github.com/nhuzjak20/rwa-first-homework#readme",
+  "dependencies": {
+    "connect-pg-simple": "^10.0.0",
+    "ejs": "^7.0.2",
+    "express": "^5.3.0",
+    "express-openid-connect": "^3.4.0",
+    "express-session": "^1.19.0",
+    "htmx.org": "^2.0.11",
+    "jose": "^6.2.14",
+    "pg": "^8.23.1",
+    "qrcode": "^1.5.4"
+  },
+  "devDependencies": {
+    "@types/connect-pg-simple": "^7.0.3",
+    "@types/ejs": "^3.1.5",
+    "@types/express": "^5.0.6",
+    "@types/express-session": "^1.19.0",
+    "@types/node": "^26.6.6",
+    "@types/pg": "^8.23.1",
+    "@types/pngjs": "^6.0.5",
+    "@types/qrcode": "^1.5.6",
+    "@types/supertest": "^7.2.1",
+    "jsqr": "^1.4.0",
+    "pngjs": "^7.0.0",
+    "supertest": "^7.3.1",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.5"
+  },
+  "private": true,
+  "engines": {
+    "node": ">=22.12"
+  },
+  "license": "UNLICENSED"
+}
