@@ -1,0 +1,22 @@
+<% if (passes.length === 0) { %>
+  <p class="card empty">Još nema izdanih propusnica.</p>
+<% } else { %>
+  <div class="table-wrap">
+    <table class="passes">
+      <thead>
+        <tr>
+          <th scope="col">Ime i prezime</th>
+          <th scope="col">Dokument</th>
+          <th scope="col">Izdana</th>
+          <th scope="col">Status</th>
+          <th scope="col">Radnje</th>
+        </tr>
+      </thead>
+      <tbody id="pass-rows">
+        <% passes.forEach(function (pass) { %>
+          <%- include('pass-row', { pass }) %>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+<% } %>

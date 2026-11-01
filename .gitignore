@@ -1,0 +1,14 @@
+node_modules/
+dist/
+coverage/
+.env
+.env.*
+!.env.example
+*.log
+submission.json
+submission*.json
+!submission.template.json
+# PNGs written by the task 2 automation script
+/*.png
+.idea/workspace.xml
+.idea/shelf/

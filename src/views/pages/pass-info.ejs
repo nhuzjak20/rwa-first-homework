@@ -1,0 +1,20 @@
+<%- include('../layouts/header', { title }) %>
+<h1>Podaci o propusnici</h1>
+
+<section class="card pass-info">
+  <dl>
+    <dt>Ime i prezime</dt>
+    <dd><%= pass.name %></dd>
+    <dt>Identifikator dokumenta</dt>
+    <dd><%= pass.document %></dd>
+    <dt>Vrijeme izdavanja</dt>
+    <dd><time datetime="<%= pass.issuedAt.toISOString() %>"><%= formatDateTime(pass.issuedAt) %></time></dd>
+    <dt>Status</dt>
+    <dd>
+      <span class="badge badge-<%= pass.status.toLowerCase() %>"><%= statusLabel(pass.status) %></span>
+      <code><%= pass.status %></code>
+    </dd>
+  </dl>
+  <p class="muted">ID propusnice: <code><%= pass.id %></code></p>
+</section>
+<%- include('../layouts/footer') %>

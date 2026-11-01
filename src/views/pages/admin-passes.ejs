@@ -1,0 +1,13 @@
+<%- include('../layouts/header', { title }) %>
+<h1>Upravljanje propusnicama</h1>
+<% if (user && (user.name || user.email)) { %>
+  <p class="muted">Prijavljeni korisnik: <%= user.name || user.email %></p>
+<% } %>
+
+<%- include('../partials/pass-counts', { counts, oob: false }) %>
+
+<%# HTMX requests carry the CSRF token in a header; plain forms send the hidden _csrf field. %>
+<div hx-headers='<%= JSON.stringify({ "X-CSRF-Token": csrfToken }) %>'>
+  <%- include('../partials/pass-list', { passes }) %>
+</div>
+<%- include('../layouts/footer') %>

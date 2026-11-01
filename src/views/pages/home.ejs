@@ -1,0 +1,27 @@
+<%- include('../layouts/header', { title }) %>
+<h1>Digitalne propusnice</h1>
+
+<section class="stats" aria-label="Statistika propusnica">
+  <div class="stat">
+    <span class="stat-value" id="total-count"><%= counts.total %></span>
+    <span class="stat-label">Ukupno izdanih propusnica</span>
+  </div>
+  <div class="stat">
+    <span class="stat-value" id="active-count"><%= counts.active %></span>
+    <span class="stat-label">Aktivnih propusnica</span>
+  </div>
+</section>
+
+<section class="card">
+  <% if (isAuthenticated) { %>
+    <p>Prijavljeni ste<% if (user && (user.name || user.email)) { %> kao <strong><%= user.name || user.email %></strong><% } %>.</p>
+    <p class="actions">
+      <a class="button" href="/admin/passes">Upravljanje propusnicama</a>
+      <a class="button secondary" href="/logout">Odjava</a>
+    </p>
+  <% } else { %>
+    <p>Za upravljanje propusnicama potrebno je prijaviti se.</p>
+    <p class="actions"><a class="button" href="/login?returnTo=%2Fadmin%2Fpasses">Prijava</a></p>
+  <% } %>
+</section>
+<%- include('../layouts/footer') %>
